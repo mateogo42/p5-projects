@@ -1,6 +1,8 @@
 from p5 import *
 from random import randint
+from PIL import ImageFont
 
+f = None
 arr = []
 bins = 30
 i = 0
@@ -16,9 +18,15 @@ def setup():
         elem = randint(50, 300)
         arr.append(elem)
     key = arr[i]
+    f = ImageFont.load_default()
+    text_font(f)
+    text_align("CENTER")
 
 def draw():
     background(0)
+    s = "BUBBLE"
+    fill(255)
+    text(s, (width * 0.5, height * 0.1))
     translate(0, height)
     bins_width = width / len(arr)
     stroke(0)
